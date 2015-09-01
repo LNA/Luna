@@ -1,0 +1,8 @@
+Add Oliva 1000 1
+Draw Olivia 500 1
+Draw Olivia 50 Utilities 3
+Draw Oliva 100 Grocery
+Draw Olivia Netflix 7
+Pay Oliva 1000 15
+Draw Oliva 75 Beauty 20
+Draw Olivia 100 Wardrobe 29
