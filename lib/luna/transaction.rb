@@ -1,20 +1,15 @@
 module Luna
   class Transaction
-    attr_accessor :add, :draw, :pay
+    attr_accessor :income, :expense
     class << self
-      def add(transaction)
-        Struct.new("Add", :type, :name, :amount, :tag, :day)
-        Struct::Add.new(*transaction)
+      def income(transaction)
+        Struct.new("Income", :type, :name, :amount, :source, :day)
+        Struct::Income.new(*transaction)
       end
 
-      def draw(transaction)
-        Struct.new("Draw", :type, :name, :amount, :tag, :day)
-        Struct::Draw.new(*transaction)
-      end
-
-      def pay(transaction)
-        Struct.new("Pay", :type, :name, :amount, :tag, :day)
-        Struct::Pay.new(*transaction)
+      def expense(transaction)
+        Struct.new("Expense", :type, :name, :amount, :source, :day)
+        Struct::Expense.new(*transaction)
       end
     end
   end

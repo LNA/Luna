@@ -6,10 +6,10 @@ describe Luna::TransactionFactory do
 
   describe "#build" do
     it "gives and add transaction" do
-      data = ["Add", "Oliva", "1000", "Income", "1"]
+      data = ["Income", "Oliva", "1000", "Income", "1"]
       transaction = factory.build(data)
 
-      expect(transaction.type).to eq "Add"
+      expect(transaction.type).to eq "Income"
       expect(transaction.name).to eq "Oliva"
       expect(transaction.amount).to eq "1000"
       expect(transaction.tag).to eq "Income"
@@ -17,17 +17,10 @@ describe Luna::TransactionFactory do
     end
 
     it "gives a draw transaction" do
-      data = ["Draw", "Oliva", "1000", "SelfCare", "1"]
+      data = ["Expense", "Oliva", "1000", "SelfCare", "1"]
       transaction = factory.build(data)
 
-      expect(transaction.type).to eq "Draw"
-    end
-
-    it "gives a pay transaction" do
-      data = ["Pay", "Oliva", "1000", "BlueInc", "1"]
-      transaction = factory.build(data)
-
-      expect(transaction.type).to eq "Pay"
+      expect(transaction.type).to eq "Expense"
     end
 
     context "when no transaction type is given" do
