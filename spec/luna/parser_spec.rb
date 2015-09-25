@@ -16,5 +16,11 @@ describe Luna::Parser do
 
       end
     end
+
+    context 'when source of income/expense is made of 2 words' do
+      it "does something different" do
+
+      end
+    end
   end
 end

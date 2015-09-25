@@ -1,27 +1,35 @@
 module Luna
   class TransactionFactory
 
-    ADD  = "Add"
-    DRAW = "Draw"
+    INCOME  = "Income"
+    EXPENSE = "Expense"
 
     def build(transaction)
-      if add?(transaction)
-        Luna::Transaction.add(transaction)
-      elsif draw?(transaction)
-        Luna::Transaction.draw(transaction)
+      if income?(transaction)
+        build_income(transaction)
       else
-        Luna::Transaction.pay(transaction)
+        build_expense(transaction)
       end
     end
 
     private
 
-    def add?(transaction)
-      transaction.first == ADD
+    def income?(transaction)
+      transaction.first == INCOME
     end
 
-    def draw?(transaction)
-      transaction.first == DRAW
+    def expense?(transaction)
+      transaction.first == EXPENSE
+    end
+
+    def build_income(transaction)
+      Struct.new("Income", :type, :name, :amount, :source, :day)
+      Struct::Income.new(*transaction)
+    end
+
+    def build_expense(transaction)
+      Struct.new("Expense", :type, :name, :amount, :source, :day)
+      Struct::Expense.new(*transaction)
     end
   end
 end

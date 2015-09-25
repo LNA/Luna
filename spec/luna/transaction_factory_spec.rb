@@ -1,6 +1,4 @@
 require 'spec_helper'
-$: << File.expand_path(File.dirname(__FILE__))
-
 describe Luna::TransactionFactory do
   let(:factory) { Luna::TransactionFactory.new }
 
@@ -12,7 +10,7 @@ describe Luna::TransactionFactory do
       expect(transaction.type).to eq "Income"
       expect(transaction.name).to eq "Oliva"
       expect(transaction.amount).to eq "1000"
-      expect(transaction.tag).to eq "Income"
+      expect(transaction.source).to eq "Income"
       expect(transaction.day).to eq "1"
     end
 

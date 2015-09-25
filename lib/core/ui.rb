@@ -1,10 +1,12 @@
 module Core
   class UI
     BLANK_LINE = "  "
+    WELCOME_MESSAGE = "Welcome! Calulating..."
+    BALANCE_MESSAGE = "Balance on Day 30: "
 
     def welcome
       BLANK_LINE
-      puts "Welcome! Calculation..."
+      puts WELCOME_MESSAGE
       BLANK_LINE
     end
 
@@ -14,7 +16,7 @@ module Core
 
     def final_record
       BLANK_LINE
-      puts "Balance on Day 30: "
+      puts BALANCE_MESSAGE
       BLANK_LINE
     end
   end
