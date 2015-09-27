@@ -4,10 +4,12 @@ module Luna
 
     def initialize
       @records = {}
+      @id = 1
     end
 
     def save(account)
-      @records[account[:name]] = account
+      @records[@id] = account
+      @id += 1
       account
     end
 

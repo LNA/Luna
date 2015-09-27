@@ -1,13 +1,11 @@
 module Core
   class UI
-    BLANK_LINE = "  "
-    WELCOME_MESSAGE = "Welcome! Calulating..."
-    BALANCE_MESSAGE = "Balance on Day 30: "
+    BLANK_LINE = "..............."
+    WELCOME_MESSAGE = "Welcome! Here are your transactions: "
+    BALANCE_MESSAGE = "Your balance on Day 30 is "
 
     def welcome
-      BLANK_LINE
       puts WELCOME_MESSAGE
-      BLANK_LINE
     end
 
     def print(record)
@@ -15,9 +13,11 @@ module Core
     end
 
     def final_record
-      BLANK_LINE
       puts BALANCE_MESSAGE
-      BLANK_LINE
+    end
+
+    def blank_line
+      puts BLANK_LINE
     end
   end
 end

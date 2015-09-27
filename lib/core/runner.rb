@@ -1,6 +1,4 @@
 require 'lib/core/ui'
-require 'lib/luna/handlers/income'
-require 'lib/luna/handlers/expense'
 require 'lib/luna/repository'
 require 'lib/luna/accounts'
 module Core
@@ -15,9 +13,12 @@ module Core
     def start
       @ui.welcome
       register_repository
+      @transaction_factory.define(@config)
       validate(@parser.parse_data)
       print_records
+      @ui.blank_line
       @ui.final_record
+      puts calculate_balance
     end
 
     private
@@ -36,9 +37,7 @@ module Core
 
     def handle_valid(transaction)
       transaction    = @transaction_factory.build(transaction)
-      handler        = generate_handler(transaction)
-      account        = handler.respond(transaction)
-      Luna::Repository.for(:account).save(account)
+      Luna::Repository.for(:account).save(transaction)
     end
 
     def print_records
@@ -48,9 +47,14 @@ module Core
       end
     end
 
-    def generate_handler(transaction)
-      klass = "Luna::Handlers::#{transaction.type}"
-      Kernel.const_get(klass).new
+    def calculate_balance
+      records = Luna::Repository.for(:account).records
+      balance = 0
+      records.each do |r|
+        balance += r.last.amount.to_i if r.last.type == "Income"
+        balance -= r.last.amount.to_i if r.last.type == "Expense"
+      end
+      balance
     end
   end
 end

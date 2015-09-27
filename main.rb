@@ -1,4 +1,5 @@
 $: << File.expand_path(File.dirname(__FILE__))
+
 require 'lib/core/ui'
 require 'lib/core/config'
 require 'lib/core/runner'
