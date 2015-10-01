@@ -18,7 +18,7 @@ module Luna
     end
 
     def find_by_id(id)
-      @records[id]
+      @records[id] || {}
     end
   end
 end
