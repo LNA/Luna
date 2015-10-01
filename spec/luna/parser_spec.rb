@@ -11,12 +11,6 @@ describe Luna::Parser do
       expect(transactions.count).to eq 2
     end
 
-    context 'when no file given' do
-      it "does sad path" do
-
-      end
-    end
-
     context 'when source of income/expense is made of 2 words' do
       it "does something different" do
 
