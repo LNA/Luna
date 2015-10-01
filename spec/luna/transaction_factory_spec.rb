@@ -1,22 +1,26 @@
 require 'spec_helper'
 describe Luna::TransactionFactory do
   let(:factory) { Luna::TransactionFactory.new }
+  let(:income)  { ["Income", "Oliva", "4000", "Income", "1"] }
+  let(:expense) { ["Expense", "Oliva", "100", "Jeans", "1"] }
+
+  before :each do
+    factory.define(["Income", "Expense"])
+  end
 
   describe "#build" do
-    it "gives and add transaction" do
-      data = ["Income", "Oliva", "1000", "Income", "1"]
-      transaction = factory.build(data)
+    it "gives and income transaction" do
+      transaction = factory.build(income)
 
       expect(transaction.type).to eq "Income"
       expect(transaction.name).to eq "Oliva"
-      expect(transaction.amount).to eq "1000"
+      expect(transaction.amount).to eq "4000"
       expect(transaction.source).to eq "Income"
       expect(transaction.day).to eq "1"
     end
 
-    it "gives a draw transaction" do
-      data = ["Expense", "Oliva", "1000", "SelfCare", "1"]
-      transaction = factory.build(data)
+    it "gives an expense transaction" do
+      transaction = factory.build(expense)
 
       expect(transaction.type).to eq "Expense"
     end
