@@ -17,8 +17,8 @@ module Luna
       @records.values
     end
 
-    def find_by_name(name)
-      @records[name]
+    def find_by_id(id)
+      @records[id]
     end
   end
 end

@@ -1,3 +1,6 @@
 Income Oliva 1000 Heroku 1
 Expense Olivia 500 Rent 1
-Expense Olivia 100 Yoga 3
+Expense Olivia 100 Boxing 3
+Expense Olivia 50 Grocery 15
+Income Olivia 100 Babysitting 20
+Income Olivia 100 Babysitting 28
