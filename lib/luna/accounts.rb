@@ -8,9 +8,10 @@ module Luna
     end
 
     def save(account)
-      @records[@id] = account
-      @id += 1
-      account
+      account.tap do |a|
+        @records[@id] = a
+        @id += 1
+      end
     end
 
     def all
