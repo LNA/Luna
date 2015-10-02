@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Luna::Accounts do
   let (:datastore)   { Luna::Accounts.new  }
-  let (:account_1)    { {:type=>"INCOME", :name=>"Rose"} }
-  let (:account_2)    { {:type=>"INCOME", :name=>"Tyler"} }
+  let (:account_1)   { {:type=>"INCOME", :name=>"Rose"} }
+  let (:account_2)   { {:type=>"INCOME", :name=>"Tyler"} }
 
   describe '#save' do
     it "saves an account" do
