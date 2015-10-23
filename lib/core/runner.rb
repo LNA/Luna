@@ -43,7 +43,7 @@ module Core
     def print_records
       records = Luna::Repository.for(:account).records
       records.each do |record|
-        @ui.print(record)
+        @ui.print(record.first, record.last)
       end
     end
 
